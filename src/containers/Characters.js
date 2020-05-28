@@ -4,8 +4,24 @@ import { useQuery } from "@apollo/react-hooks";
 import { NavLink } from "react-router-dom";
 
 const GET_CHARACTERS = gql`
-  query Characters($q: String!, $p: Int!) {
-    characters(page: $p, filter: { name: $q }) {
+  query Characters(
+    $name: String!
+    $status: String!
+    $gender: String!
+    $type: String!
+    $species: String!
+    $p: Int!
+  ) {
+    characters(
+      filter: {
+        name: $name
+        status: $status
+        gender: $gender
+        type: $type
+        species: $species
+      }
+      page: $p
+    ) {
       info {
         count
       }
@@ -28,11 +44,10 @@ const GET_CHARACTERS = gql`
   }
 `;
 
-export default ({ name, page, paginate }) => {
-  const q = name;
+export default ({ name, page, status, gender, type, species, paginate }) => {
   const p = page;
   const { loading, error, data } = useQuery(GET_CHARACTERS, {
-    variables: { p, q },
+    variables: { name, status, gender, type, species, p },
   });
   if (loading)
     return (
