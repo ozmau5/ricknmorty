@@ -111,20 +111,26 @@ export default ({ name, page, status, gender, type, species, paginate }) => {
       {
         // Search results
       }
-      {data.characters.results.map(({ id, image, name }) => {
-        return (
-          <div key={id} className="col s3">
-            <div className="card hoverable">
-              <NavLink to={`bio/${id}`}>
-                <div className="card-image">
-                  <img src={image} alt={name}></img>
-                </div>
-                <div className="card-content center-align">{name}</div>
-              </NavLink>
+      <div className="row" style={{ display: "flex", flexWrap: "wrap" }}>
+        {data.characters.results.map(({ id, image, name }) => {
+          return (
+            <div
+              key={id}
+              className="col s12 m6 l3"
+              style={{ marginRight: "auto" }}
+            >
+              <div className="card hoverable">
+                <NavLink to={`bio/${id}`}>
+                  <div className="card-image">
+                    <img src={image} alt={name} />
+                  </div>
+                  <div className="card-content center-align">{name}</div>
+                </NavLink>
+              </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </div>
   );
 };

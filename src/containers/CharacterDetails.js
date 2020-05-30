@@ -51,24 +51,22 @@ const CharacterDetails = (props) => {
     episode,
   } = data.character;
   return (
-    <div>
+    <div className="row">
       <NavLink to="/"> {`<`} Back to the results</NavLink>
       <br />
-      <div
-        className="center-align z-depth-2"
-        style={{ margin: "10px 100px 50px 100px" }}
-      >
+      <div className="center-align">
         <h4 style={{ paddingTop: "20px" }}>{name}</h4>
-        <img
-          src={image}
-          width="400"
-          style={{
-            boxShadow: "0 4px 8px 0 #000002, 0 6px 20px 0 #000002 ",
-          }}
-          alt={name}
-        ></img>
+        <div className="s4 card-image">
+          <img
+            src={image}
+            style={{
+              boxShadow: "0 4px 8px 0 #000002",
+            }}
+            alt={name}
+          />
+        </div>
         <br />
-        <div style={{ padding: "25px 10px 0 10px" }}>
+        <div className="s8">
           <table className="striped">
             <tbody>
               <tr>
