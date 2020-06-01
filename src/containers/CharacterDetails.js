@@ -3,7 +3,7 @@ import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/react-hooks";
 import { NavLink } from "react-router-dom";
 
-const GET_CHARACTERS = gql`
+const GET_CHARACTER = gql`
   query Character($id: ID!) {
     character(id: $id) {
       name
@@ -29,7 +29,7 @@ const GET_CHARACTERS = gql`
 
 const CharacterDetails = (props) => {
   const id = props.match.params.id;
-  const { loading, error, data } = useQuery(GET_CHARACTERS, {
+  const { loading, error, data } = useQuery(GET_CHARACTER, {
     variables: { id },
   });
   if (loading)

@@ -52,7 +52,7 @@ export default ({ name, page, status, gender, type, species, paginate }) => {
   if (loading)
     return (
       <div className="progress">
-        <div className="indeterminate"></div>
+        <div className="indeterminate">Loading ...</div>
       </div>
     );
   if (error) return <h5 class="center-align">Character not found!</h5>;
